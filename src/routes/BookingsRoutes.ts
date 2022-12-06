@@ -40,7 +40,11 @@ router.post('/bookings', async (req, res) => {
     });
   }
 
-  const startDate = addDays(new Date(bookings[0]?.endDate), 1);
+  const startingDate = bookings[0]
+    ? new Date(bookings[0]?.endDate)
+    : new Date();
+
+  const startDate = addDays(startingDate, 1);
 
   const booking = await Booking.create({
     username,
