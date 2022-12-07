@@ -12,7 +12,7 @@ mongoose
 
     app.use(express.json());
     app.use(cors);
-    app.use(router);
+    app.use('/api', router);
 
     app.listen(env.port, () => {
       console.log(`🚀 Server is running on http://localhost:${env.port}/`);
